@@ -5,7 +5,8 @@ const users = require("./repositories/users");
 const express = require("express"),
       bodyParser = require("body-parser"),
       authRouter = require("./routes/admin/auth"),
-      productsRouter = require("./routes/admin/products"),
+      adminProductsRouter = require("./routes/admin/products"),
+      productsRouter = require("./routes/products"),
       cookieSession = require("cookie-session"),
       app = express();
 
@@ -18,6 +19,7 @@ app.use(cookieSession({
 }))
 app.use(authRouter);
 app.use(productsRouter);
+app.use(adminProductsRouter);
 
 
 app.listen(3000, () => {
